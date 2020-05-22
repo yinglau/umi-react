@@ -6,10 +6,15 @@
     "postinstall": "umi generate tmp",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "test": "umi-test",
-    "test:coverage": "umi-test --coverage"
+    "test:coverage": "umi-test --coverage",
+    "lint": "tslint --project tsconfig.json"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "git pull --rebase",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "lint-staged": {
     "*.{js,jsx,less,md,json}": [
@@ -26,16 +31,19 @@
     "@umijs/test": "^3.1.4",
     "axios": "^0.19.2",
     "dva": "^2.4.1",
-    "lint-staged": "^10.0.7",
     "prettier": "^1.19.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "umi": "^3.1.4",
-    "whatwg-fetch": "^3.0.0",
-    "yorkie": "^2.0.0"
+    "whatwg-fetch": "^3.0.0"
   },
   "__npminstall_done": false,
   "devDependencies": {
-    "babel-plugin-transform-remove-console": "^6.9.4"
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.6",
+    "tslint": "^6.1.2"
   }
 }

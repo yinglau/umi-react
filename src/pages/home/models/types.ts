@@ -1,4 +1,4 @@
-export interface TestState {
-  title: string,
-  name: string
+export interface ITestState {
+  title: string;
+  name: string;
 }

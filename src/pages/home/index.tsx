@@ -1,9 +1,9 @@
-import React from 'react'
-import { Link } from 'umi'
-import { TestState } from './models/types'
+import React from 'react';
+import { Link } from 'umi';
+import { ITestState } from './models/types';
 
-import { connect } from 'dva'
-import Test from './components/test'
+import { connect } from 'dva';
+import Test from './components/test';
 
 // export default connect((state: TestState) => state)((props: any) => {
 
@@ -17,9 +17,8 @@ import Test from './components/test'
 //   );
 // })
 
-@connect((state: TestState) => state)
-
-class Index extends React.Component<TestState> {
+@connect((state: ITestState) => state)
+class Index extends React.Component<ITestState> {
   // constructor(props: IProps & TestState) {
   //   super(props)
   // }
@@ -31,29 +30,27 @@ class Index extends React.Component<TestState> {
     //   Sentry.captureException(err)
     // })
     // const { dispatch } = this.props;
-
     // dispatch({
     //   type: 'HOME/testAction',
     //   payLoad: 'asdf'
     // }).then((res: any) => {
     //   // console.log(res)
     // })
-
   }
 
   render() {
     return (
       <div>
-        <Link to='/' >index</Link>
-        <Link to='/test222' >test</Link>
+        <Link to="/">index</Link>
+        <Link to="/test222">test</Link>
         <Test />
         hello!
       </div>
-    )
+    );
   }
 }
 
-export default Index
+export default Index;
 
 // import React from 'react'
 // import Page from './_dynamic'
