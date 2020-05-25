@@ -4,8 +4,9 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  antd: false,
 
+  dva: {},
+  antd: false,
 
   // 路由配置
   // routes: [
@@ -34,6 +35,5 @@ export default defineConfig({
   //   console.log(env)
   // }
 
-  define: {
-  }
+  define: {},
 });

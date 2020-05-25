@@ -1,4 +1,5 @@
-// import React from 'react'
-import NotFoundPage from './exceptions/404'
+import React from 'react';
 
-export default NotFoundPage
+export default () => {
+  return <div>404 not found!!</div>;
+};

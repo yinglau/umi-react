@@ -5,8 +5,7 @@ import { Button } from 'antd';
 //   return (<div>hahaha</div>)
 // }
 
-const Test = (props: any) => {
-  console.log('Test', props);
+const Test = (props: { title: string }) => {
   return (
     <div>
       <Button type="primary">asdfsdf</Button>
