@@ -27,6 +27,8 @@ export default defineConfig({
 
   antd: false,
 
+  chunks: ['vendors', 'umi'],
+
   chainWebpack(memo, { env, webpack, createCSSRule }) {
     memo.optimization.splitChunks({
       chunks: 'async',
