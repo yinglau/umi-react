@@ -1,26 +1,26 @@
 export default {
   namespace: 'HOME',
   state: {
-    default: 'hello'
+    default: 'hello',
   },
   effects: {
-    *testAction(_, $) {
+    *testAction(_: any, $: any) {
       // console.log('_', _)
       // console.log('$', $)
-      yield $.put({ type: 'test', payLoad: 'haha' })
+      yield $.put({ type: 'test', payLoad: 'haha' });
       // return 'hahah'
     },
-    *testAction2(_, $) {
+    *testAction2(_: any, $: any) {
       // console.log('_', _)
       // console.log('$', $)
-      yield $.put({ type: 'test', payLoad: 'haha' })
-    }
+      yield $.put({ type: 'test', payLoad: 'haha' });
+    },
   },
   reducers: {
-    test: (state, payLoad) => {
+    test: (state: any, payLoad: any) => {
       // console.log('state', state)
       // console.log('payLoad', payLoad)
-      return state
-    }
-  }
-}
+      return state;
+    },
+  },
+};

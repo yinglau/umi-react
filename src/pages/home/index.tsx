@@ -18,7 +18,6 @@ class Index extends React.Component<ITestState> {
       <div>
         <Link to="/">index</Link>
         <Link to="/test222">test</Link>
-        <Test />
         hello!
       </div>
     );

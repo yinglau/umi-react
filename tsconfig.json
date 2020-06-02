@@ -24,5 +24,8 @@
     ".umirc.ts",
     "typings.d.ts"
   ],
-  "exclude": ["node_modules", "src/.umi/**/*"]
+  "exclude": [
+    "node_modules"
+    // "src/.umi/**/*"
+  ]
 }
