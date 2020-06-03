@@ -1,28 +1,30 @@
+import * as services from '../services';
+import { delay } from '@/utils/fetch';
+import { EffectsCommandMap } from 'dva';
+import { AnyAction } from 'redux';
+
 export default {
   namespace: 'HOME',
   state: {
-    default: 'hello',
+    listData: [],
   },
   effects: {
-    *testAction(_: any, $: any) {
+    *testAction(_: AnyAction, $: EffectsCommandMap) {
       // console.log('_', _)
       // console.log('$', $)
-      yield $.put({ type: 'test', payLoad: 'haha' });
+      const resData: IResData = yield $.call(services.getList);
+      yield delay(3000);
+      yield $.put({ type: 'test', payLoad: resData });
       // return 'hahah'
-    },
-    *testAction2(_: any, $: any) {
-      // console.log('_', _)
-      // console.log('$', $)
-      yield $.put({ type: 'test', payLoad: 'haha' });
     },
   },
   reducers: {
-    test: (state: any, action: any) => {
+    test: (state: any, action: AnyAction) => {
       // console.log('state', state)
       // console.log('payLoad', payLoad)
       return {
         ...state,
-        default: action.payLoad,
+        listData: action.payLoad,
       };
     },
   },

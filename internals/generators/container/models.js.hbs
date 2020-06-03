@@ -4,29 +4,31 @@
 * email: {{ author.email }}
 */
 
+import { EffectsCommandMap } from 'dva'
+import { AnyAction } from 'redux'
+
 export default {
 namespace: '{{ properCase name }}',
 state: {
-default: 'hello'
+default: 'hello',
 },
 effects: {
-*testAction(_, $) {
+*testAction(_: AnyAction, $: EffectsCommandMap) {
 // console.log('_', _)
 // console.log('$', $)
-yield $.put({ type: 'test', payLoad: 'haha' })
+const resData = yield $.ca
+yield $.put({ type: 'test', payLoad: 'haha' });
 // return 'hahah'
 },
-*testAction2(_, $) {
-// console.log('_', _)
-// console.log('$', $)
-yield $.put({ type: 'test', payLoad: 'haha' })
-}
 },
 reducers: {
-test: (state, payLoad) => {
+test: (state: any, action: AnyAction) => {
 // console.log('state', state)
 // console.log('payLoad', payLoad)
-return state
-}
-}
+return {
+...state,
+default: action.payLoad,
+};
+},
+},
 }
