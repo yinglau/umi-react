@@ -12,5 +12,5 @@ const pageComponents = fs.readdirSync(path.join(__dirname, '../../src/components
 const components = pageContainers.concat(pageComponents);
 
 module.exports = componentExists = (name) => {
-  return components.indexOf(properCase(name)) >= 0;
+  return components.indexOf(properCase(name)) >= 0
 }

@@ -3,22 +3,33 @@ import { Link } from 'umi';
 import { ITestState } from './models/types';
 
 import { connect } from 'dva';
-import Test from './components/test';
 
-@connect((state: ITestState) => state)
-class Index extends React.Component<ITestState> {
+@connect(
+  (state: any) => state.HOME,
+  (dispatch: any) => {
+    return {
+      getAction: () => {
+        dispatch({ type: 'HOME/testAction' });
+      },
+    };
+  },
+)
+class Index extends React.Component<ITestState & { getAction: Function }> {
   // constructor(props: IProps & TestState) {
   //   super(props)
   // }
 
-  componentDidMount() {}
+  componentDidMount() {
+    console.log(this.props);
+    this.props.getAction();
+  }
 
   render() {
     return (
       <div>
         <Link to="/">index</Link>
         <Link to="/test222">test</Link>
-        hello!
+        hello! {this.props.default}
       </div>
     );
   }

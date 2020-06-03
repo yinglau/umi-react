@@ -8,3 +8,8 @@ declare module '*.svg' {
   const url: string;
   export default url;
 }
+
+declare module 'mockjs' {
+  export const mock: any;
+  export const Random: any;
+}

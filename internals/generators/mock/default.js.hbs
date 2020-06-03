@@ -1,0 +1,17 @@
+/**
+* {{ name }} component
+* author: {{ author.name }}
+* email: {{ author.email }}
+*/
+
+import mockjs from 'mockjs'
+
+export default {
+'GET /api/example': { data: 'haha' },
+'POST /api/example': (req: any, res: any) => {
+res.end('ok')
+},
+'GET /api/mock': mockjs.mock({
+'name|1-5': 'ha'
+})
+}

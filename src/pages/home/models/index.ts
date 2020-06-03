@@ -17,10 +17,13 @@ export default {
     },
   },
   reducers: {
-    test: (state: any, payLoad: any) => {
+    test: (state: any, action: any) => {
       // console.log('state', state)
       // console.log('payLoad', payLoad)
-      return state;
+      return {
+        ...state,
+        default: action.payLoad,
+      };
     },
   },
 };

@@ -1,4 +1,3 @@
 export interface ITestState {
-  title: string;
-  name: string;
+  default: string; //哈哈
 }
