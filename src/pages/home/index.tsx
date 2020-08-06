@@ -1,35 +1,35 @@
-import React, { Dispatch } from 'react';
-import { Link } from 'umi';
-import { ITestState } from './types';
-
-import { connect } from 'dva';
+import React, { Dispatch, useMemo } from 'react'
+import { Link } from 'umi'
+import { ITestState } from './types'
+import { connect } from 'dva'
+import Test from './components/test'
 
 @connect(
   (models: any): ITestState => ({
     HOME: models.HOME,
     loading: models.loading,
   }),
-  (dispatch: Dispatch<{ type: string; [propName: string]: any }>) => {
+  (dispatch: Dispatch<{ type: string;[propName: string]: any }>) => {
     return {
       getAction: () => {
-        dispatch({ type: 'HOME/testAction' });
+        dispatch({ type: 'HOME/testAction' })
       },
     };
   },
 )
 class Index extends React.Component<ITestState & { getAction: () => void }> {
-  // constructor(props: IProps & TestState) {
-  //   super(props)
-  // }
-
-  componentDidMount() {
-    console.log(this.props);
-    this.props.getAction();
+  constructor(props: any) {
+    super(props)
   }
 
-  renderList = (data: Array<any>) => {
-    return data.map(item => <div>{item.name}</div>);
-  };
+  componentDidMount() {
+    console.log(this.props)
+    this.props.getAction()
+  }
+
+  // renderList = (data: Array<any>) => {
+  //   return data.map(item => <div>{item.name}</div>)
+  // }
 
   render() {
     const { effects } = this.props.loading;
@@ -44,8 +44,8 @@ class Index extends React.Component<ITestState & { getAction: () => void }> {
           {effects['HOME/testAction'] ? (
             <div>Loading...</div>
           ) : (
-            <div>{this.renderList(listData)}</div>
-          )}
+              <Test data={listData} />
+            )}
         </div>
       </div>
     );

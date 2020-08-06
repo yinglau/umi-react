@@ -1,16 +1,14 @@
-import React from 'react';
-import { Button } from 'antd';
+import React, { useMemo } from 'react';
 
 // export default () => {
 //   return (<div>hahaha</div>)
 // }
 
-const Test = (props: { title: string }) => {
-  return (
-    <div>
-      <Button type="primary">asdfsdf</Button>
-    </div>
-  );
-};
+const Test = (props: any) => {
+  // return props.data.map((item: any) => <div>{item.name}</div>)
+  return useMemo(() => {
+    return props.data.map((item: any) => <div>{item.name}</div>)
+  }, [props.data])
+}
 
-export default Test;
+export default Test

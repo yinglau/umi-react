@@ -1,4 +1,6 @@
 // import * as Sentry from '@sentry/browser'
+import React, { Profiler } from 'react';
+
 import { history } from 'umi';
 import NotFound from './pages/404';
 
@@ -21,3 +23,11 @@ export function render(oldRender: () => void) {
   }
   oldRender();
 }
+
+// const ProfilerProvider = (props: any) => {
+//   return <Profiler id="fuck you" onRender={() => console.log('xxx')}>{props.children}</Profiler>
+// }
+
+// export function rootContainer(container: any) {
+//   return React.createElement(ProfilerProvider, null, container);
+// }
