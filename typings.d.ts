@@ -13,3 +13,7 @@ declare module 'mockjs' {
   export const mock: any;
   export const Random: any;
 }
+
+declare module 'Window' {
+  export const haha: (str: number) => void;
+}
